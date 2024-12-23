@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import MinMaxScaler, StandardScaler
 import os
 import logging
 
@@ -69,7 +69,7 @@ def preprocess_data(train_data, test_data):
         logger.info("Missing values filled with 0.")
 
         # MinMax Scaling for numerical columns
-        scaler = MinMaxScaler()
+        scaler = StandardScaler()
         X_train_scaled = scaler.fit_transform(X_train_encoded)
         X_test_scaled = scaler.transform(X_test_encoded)
         logger.info("MinMax Scaling applied.")
